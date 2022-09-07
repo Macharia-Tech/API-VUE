@@ -27,6 +27,9 @@ export default {
                id,
                completed: completed == true ? false : true,
                });
+        },
+        openModal(){
+            this.showModal = !this.showModal
         }
     },
     computed: {
@@ -36,16 +39,19 @@ export default {
     mounted() {
         this.$store.dispatch("fetchTasklist")
     },
-    components: { AddTask }
 }
 
 </script>
 
 
 <template>
-    <button @click="showModal = true" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="authentication-modal">
+
+    <h1 align="center"> Task Manager</h1>
+    <router-link to="/add">
+        <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="authentication-modal">
     Add Task
     </button>
+    </router-link>
 
     <div class="overflow-auto rounded-lg shadow hidden lg:block">
         <table class="w-full">
@@ -82,8 +88,9 @@ export default {
                     <!-- Modal content -->
                         </div> 
                     </div>
-                    <router-link :to="{name: 'edittask', params: {id : task.id}}"><img src="../icons/edit.svg" alt="edit-icon" class="w-6 h-6 cursor-pointer" @click="showEditModal=true">
-</router-link>
+                    <!-- //ROUTES FOR EDITS// -->
+                    <!-- <router-link :to="{name: 'edittask', params: {id : task.id}}"><img src="../icons/edit.svg" alt="edit-icon" class="w-6 h-6 cursor-pointer" @click="showEditModal=true">
+</router-link> -->
 
                             <img src="../icons/delete.svg" alt="delete-icon" class="w-6 h-6 cursor-pointer" @click="deleteTask(task.id)">
                         </div>
@@ -93,6 +100,11 @@ export default {
         </table>
     </div>
 
+
+
+
+
+    <br>
 
     <h1>Completed Tasks</h1>
     <div>
@@ -174,6 +186,9 @@ export default {
         </table>
     </div>
 <div>
+
+
+    <br>
     <h2>Due Tasks</h2>
     <table class="w-full">
             <thead class="bg-gray-50 border-b-2 border-gray-200 ">
@@ -257,7 +272,7 @@ export default {
 </template>
 
 
-<style scoped>
+<!-- <style scoped>
 table {
   font-family: 'Open Sans', sans-serif;
   width: 750px;
@@ -291,4 +306,4 @@ table tbody tr:nth-child(2n) td {
 
 
 </style>  
-
+ -->
