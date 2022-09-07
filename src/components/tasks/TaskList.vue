@@ -89,8 +89,8 @@ export default {
                         </div> 
                     </div>
                     <!-- //ROUTES FOR EDITS// -->
-                    <!-- <router-link :to="{name: 'edittask', params: {id : task.id}}"><img src="../icons/edit.svg" alt="edit-icon" class="w-6 h-6 cursor-pointer" @click="showEditModal=true">
-</router-link> -->
+                    <router-link :to="{name: 'edittask', params: {id : task.id}}"><img src="../icons/edit.svg" alt="edit-icon" class="w-6 h-6 cursor-pointer" @click="showEditModal=true">
+</router-link>
 
                             <img src="../icons/delete.svg" alt="delete-icon" class="w-6 h-6 cursor-pointer" @click="deleteTask(task.id)">
                         </div>
